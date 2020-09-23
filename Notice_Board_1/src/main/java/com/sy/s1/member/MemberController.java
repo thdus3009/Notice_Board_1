@@ -16,5 +16,12 @@ public class MemberController {
 
 		return mv;
 	}
+	
+	@GetMapping("memberLogin")
+	public ModelAndView memberLogin(ModelAndView mv) throws Exception {
+		mv.setViewName("member/memberLogin");
+		//mv.addObject("memberVO", memberVO); // form error쓰려면 이거 추가
 
+		return mv;
+	}
 }
