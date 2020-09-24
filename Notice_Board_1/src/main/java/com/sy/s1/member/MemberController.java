@@ -34,9 +34,9 @@ public class MemberController {
 	}
 	@PostMapping("memberLogin")
 	public ModelAndView memberLogin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
-		System.out.println("ddd");
+
 		memberVO = memberService.memberLogin(memberVO);
-		System.out.println(memberVO);
+		System.out.println("결과 "+memberVO);
 
 		if (memberVO != null) {
 			session.setAttribute("member", memberVO);// 로그아웃할 때까지 jsp에서 ${member}로 사용할 수 있음

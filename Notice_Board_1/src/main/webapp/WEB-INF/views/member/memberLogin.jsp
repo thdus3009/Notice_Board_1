@@ -22,14 +22,14 @@ margin: 10% auto;
 <c:import url="../template/nav.jsp"></c:import>
 
 <div class="box_size" >
-	<form action="/action_page.php" >
+	<form action="./memberLogin" method="post"  >
 	  <div class="form-group">
 	    <label for="id">ID:</label>
-	    <input type="text" class="form-control" id="id">
+	    <input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요" > <!-- 데이터는 name으로 넘긴다. name:내용 / id:master -->
 	  </div>
 	  <div class="form-group">
-	    <label for="pwd">Password:</label>
-	    <input type="password" class="form-control" id="pwd">
+	    <label for="pw">Password:</label>
+	    <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력하세요" >
 	  </div>
 	  <div class="checkbox">
 	    <label><input type="checkbox"> Remember me</label>
@@ -37,5 +37,8 @@ margin: 10% auto;
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </div>
+
+
+
 </body>
 </html>
