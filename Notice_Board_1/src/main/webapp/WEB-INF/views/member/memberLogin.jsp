@@ -24,7 +24,7 @@ margin: 10% auto;
 <div class="box_size" >
 	<form action="./memberLogin" method="post"  >
 	  <div class="form-group">
-	    <label for="id">ID:</label>
+	    <label for="id">ID:</label><!-- label을 클릭하면, 연결된 양식에 입력할 수 있도록 하거나 체크를 하거나 체크를 해제합니다. -->
 	    <input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요" > <!-- 데이터는 name으로 넘긴다. name:내용 / id:master -->
 	  </div>
 	  <div class="form-group">

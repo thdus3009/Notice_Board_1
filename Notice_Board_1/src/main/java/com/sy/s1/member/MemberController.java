@@ -24,6 +24,11 @@ public class MemberController {
 
 		return mv;
 	}
+	@PostMapping("memberJoin")
+	public ModelAndView memberJoin(ModelAndView mv,MemberVO memberVO) throws Exception {
+		
+		return mv;
+	}
 	
 	@GetMapping("memberLogin")
 	public ModelAndView memberLogin(ModelAndView mv) throws Exception {
@@ -53,4 +58,10 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("memberLogOut")
+	public String memberLogOut(HttpSession session)throws Exception {
+		System.out.println("logout");
+		session.invalidate();
+		return "redirect:../";
+	}
 }
