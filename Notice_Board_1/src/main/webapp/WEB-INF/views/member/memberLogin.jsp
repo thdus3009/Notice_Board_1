@@ -24,8 +24,8 @@ margin: 10% auto;
 <div class="box_size" >
 	<form action="/action_page.php" >
 	  <div class="form-group">
-	    <label for="email">Email address:</label>
-	    <input type="email" class="form-control" id="email">
+	    <label for="id">ID:</label>
+	    <input type="text" class="form-control" id="id">
 	  </div>
 	  <div class="form-group">
 	    <label for="pwd">Password:</label>
