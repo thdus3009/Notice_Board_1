@@ -1,9 +1,11 @@
 package com.sy.s1.member;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +27,18 @@ public class MemberController {
 		return mv;
 	}
 	@PostMapping("memberJoin")
-	public ModelAndView memberJoin(ModelAndView mv,MemberVO memberVO) throws Exception {
+	public ModelAndView memberJoin(ModelAndView mv,@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception {
 		
+		boolean result = memberService.memberError(memberVO, bindingResult);
+		//result = true > 에러
+		
+		if(result) {
+			//에러가 있다면 다시 회원가입 화면
+			mv.setViewName("member/memberJoin");
+		}else { 
+			//없다면 db로 정보 보내기 //insert : 성공하면 숫자출력
+			int insert_result = memberService.memberJoin(memberVO); 
+		}
 		return mv;
 	}
 	

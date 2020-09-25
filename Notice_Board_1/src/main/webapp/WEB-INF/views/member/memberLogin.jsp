@@ -8,14 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <link rel="stylesheet" href="style.css">
-<style type="text/css">
-.box_size {
-color: navy;
-width: 500px;
-margin: 10% auto;
-
-}
-</style>
+<link href="../css/boxSize.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -37,8 +30,6 @@ margin: 10% auto;
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </div>
-
-
 
 </body>
 </html>
