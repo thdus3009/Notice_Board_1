@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,16 +21,16 @@ public class MemberController {
 	
 	
 	@GetMapping("memberJoin")
-	public ModelAndView memberJoin(ModelAndView mv) throws Exception {
+	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO) throws Exception {
 		mv.setViewName("member/memberJoin");
-		//mv.addObject("memberVO", memberVO); // form error쓰려면 이거 추가
+		mv.addObject("memberVO", memberVO); // 중요! form error쓰려면 이거 추가
 
 		return mv;
 	}
 	@PostMapping("memberJoin")
-	public ModelAndView memberJoin(ModelAndView mv,@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception {
-		
+	public ModelAndView memberJoin(ModelAndView mv, @Valid MemberVO memberVO, BindingResult bindingResult) throws Exception {
 		boolean result = memberService.memberError(memberVO, bindingResult);
+		
 		//result = true > 에러
 		
 		if(result) {
@@ -38,6 +39,16 @@ public class MemberController {
 		}else { 
 			//없다면 db로 정보 보내기 //insert : 성공하면 숫자출력
 			int insert_result = memberService.memberJoin(memberVO); 
+			
+			if (insert_result > 0) {
+				mv.addObject("result", "Join Success");
+				mv.addObject("path", "redirect:../../");
+				mv.setViewName("common/result");
+			} else {
+				mv.addObject("result", "Join Fail");
+				mv.addObject("path", "memberJoin");
+				mv.setViewName("common/result");
+			}
 		}
 		return mv;
 	}

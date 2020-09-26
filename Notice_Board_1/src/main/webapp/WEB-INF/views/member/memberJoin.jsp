@@ -17,7 +17,7 @@
 <c:import url="../template/nav.jsp"></c:import>
 
 <div class="box_size" >
-<form:form modelAttribute="memberVO" action="./memberJoin" method="post"  enctype="multipart/form-data">
+<form:form modelAttribute="memberVO" action="./memberJoin" method="post" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="id">ID:</label>
@@ -58,6 +58,7 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form:form>
 </div>
+
 
 </body>
 </html>

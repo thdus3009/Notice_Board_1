@@ -21,7 +21,7 @@ public class MemberService {
 		
 		
 		public boolean memberError(MemberVO memberVO, BindingResult bindingResult) throws Exception {
-			
+
 			boolean result = false; // 에러가 없음
 			// 단일 if문으로 작성
 
